@@ -1,20 +1,19 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 /**
- * Description of Rel_register_m
+ * Description of Mtr_perihal_m
  *
  * @author Marwan
  * @email amazzura.biz@gmail.com
  */
-class Rel_register_m extends MY_Model {
-    protected $_table_name = 'rel_register';
+class Mtr_perihal_m extends MY_Model {
+    protected $_table_name = 'mtr_perihal_bidang';
     protected $_primary_key = 'id';
     protected $_primary_filter = 'intval';
     protected $_order_by = 'id';
-    protected $_timestamps = TRUE;
-    protected $_timestamps_field = array('created');
+    protected $_timestamps = FALSE;
 }
 
 /*
- * file location: /application/models/rel_register_m.php
+ * file location: /application/models/mtr_perihal_m.php
  */

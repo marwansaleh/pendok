@@ -12,6 +12,9 @@
         <!-- Font awesome -->
         <link href="<?php echo site_url('static/font-awesome-4.5.0/css/font-awesome.min.css'); ?>" rel="stylesheet">
 
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="<?php echo site_url('static/jquery/jquery-2.1.0.min.js'); ?>"></script>
+        
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
