@@ -44,7 +44,7 @@ class GeneratorNomor {
         
         $result [] = sprintf($this->_format['tahun'], $options['tahun']);
         $result [] = sprintf($this->_format['bulan'], $options['bulan']); 
-        $result [] = sprintf($this->_format['nomor_urut'], $this->_execute_number($options['bulan'], $options['tahun']));
+        $result [] = sprintf($this->_format['nomor_urut'], $this->_execute_number($options['tahun']));
         
         if ($options['tipe_tujuan'] == 'internal'){
             $result [] = $this->_format['tipe_tujuan_int'];
@@ -56,18 +56,18 @@ class GeneratorNomor {
         return implode($this->_SEPARATOR, $result);
     }
     
-    private function _execute_number($bulan, $tahun){
+    private function _execute_number($tahun){
         //get last number for this month and year
         if (!isset($this->ci->rel_rekap_m)){
             $this->ci->load->model('rel_rekap_m');
         }
-        $rekap = $this->ci->rel_rekap_m->get_by(array('bulan'=>$bulan, 'tahun'=>$tahun), TRUE);
+        $rekap = $this->ci->rel_rekap_m->get_by(array('tahun'=>$tahun), TRUE);
         if ($rekap){
             $nomor_urut = $rekap->nomor_urut + 1;
             $this->ci->rel_rekap_m->save(array('nomor_urut'=>$nomor_urut), $rekap->id);
         }else{
             $nomor_urut = 1;
-            $this->ci->rel_rekap_m->save(array('bulan'=>$bulan,'tahun'=>$tahun,'nomor_urut'=>$nomor_urut));
+            $this->ci->rel_rekap_m->save(array('tahun'=>$tahun,'nomor_urut'=>$nomor_urut));
         }
         return $nomor_urut;
     }
