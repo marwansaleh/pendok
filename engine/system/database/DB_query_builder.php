@@ -1220,7 +1220,11 @@ abstract class CI_DB_query_builder extends CI_DB_driver {
 
 		return $this;
 	}
-
+        
+        public function get_orderby(){
+            return $this->qb_orderby;
+        }
+        
 	// --------------------------------------------------------------------
 
 	/**
