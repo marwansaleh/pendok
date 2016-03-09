@@ -17,7 +17,7 @@ class Migration_add_master_perihal extends MY_Migration {
             'auto_increment' => TRUE
         ),
         'kategori' => array(
-            'type' => 'ENUM("marketing","tehnik","klaim","keuangan")',
+            'type' => 'ENUM("marketing","tehnik","klaim","keuangan","umum")',
             'default' => 'marketing'
         ),
         'perihal' => array(

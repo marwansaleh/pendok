@@ -47,7 +47,7 @@
                         <label>Kode Perihal</label>
                         <select name="sandi_perihal" class="form-control">
                             <?php foreach ($perihal as $kategori => $pr): ?>
-                            <optgroup label="<?php echo $kategori ?>">
+                            <optgroup label="<?php echo strtoupper($kategori); ?>">
                                 <?php foreach ($pr as $p): ?>
                                 <option value="<?php echo $p->id; ?>"><?php echo $p->perihal; ?></option>
                                 <?php endforeach;?>
