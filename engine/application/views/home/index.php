@@ -78,7 +78,18 @@
         </form>
     </div>
     <div class="well well-lg">
-        <h2>Nomor Surat: <span class="generated-nomor-surat"></span></h2>
+        <h2>
+            <div class="form-group">
+                <label>Nomor Surat</label>
+                <div class="input-group">
+                    <input type="text" class="form-control generated-nomor-surat" id="nomor-surat-copy" />
+                    <div class="input-group-btn">
+                        <button type="button" id="btn-copy" class="btn btn-default clipboard" data-clipboard-target="#nomor-surat-copy"><span class="fa fa-copy"></span></button>
+                    </div>
+                </div>
+                
+            </div>
+        </h2>
     </div>
 </div>
 
@@ -117,13 +128,16 @@
             
         },
         setNomorSurat: function(nomor){
-            $('#container-generator').find('.generated-nomor-surat').text(nomor);
-        }
+            $('#container-generator').find('.generated-nomor-surat').val(nomor);
+        },
     };
     $(document).ready(function(){
         Generator.init();
         $('#container-generator').on('change','input, select', function (){
-            
+            //Generator.setNomorSurat()
+        });
+        $('#btn-copy').on('click', function(){
+            Generator.copyNomor2Clipboard();
         });
     });
 </script>
